@@ -1,0 +1,16 @@
+{
+    "name": "capimichi/google-trends",
+    "description": "Google trends",
+    "authors": [
+        {
+            "name": "Michele Capicchioni",
+            "email": "capimichi@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "GoogleTrends\\": "src/GoogleTrends/"
+        }
+    }
+}
