@@ -12,9 +12,13 @@ class Trend
      */
     public static function createFromData($data)
     {
-        $articles = array_map(function ($articleData) {
-            return Article::creatFromData($articleData);
-        }, $data['widgets'][0]['articles']);
+        if (isset($data['widgets'][0]['articles'])) {
+            $articles = array_map(function ($articleData) {
+                return Article::creatFromData($articleData);
+            }, $data['widgets'][0]['articles']);
+        } else {
+            $articles = [];
+        }
 
         $object = new Trend();
         $object->setTitle($data['title'])
@@ -68,8 +72,6 @@ class Trend
         $this->articles = $articles;
         return $this;
     }
-
-
 
 
 }
