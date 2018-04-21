@@ -107,7 +107,7 @@ class Endpoint
      * @param string $locale
      * @return mixed|string
      */
-    public static function getTrendsUrl($category = null, $geo = "IT", $locale = "it")
+    public static function getTrendsUrl($category = "all", $geo = "IT", $locale = "it")
     {
         $url = self::TRENDS_URL;
         if ($category) {
