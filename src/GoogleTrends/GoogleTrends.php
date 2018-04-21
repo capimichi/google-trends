@@ -14,7 +14,7 @@ class GoogleTrends
      * @param string $locale
      * @return array
      */
-    public static function getLatestTrendIds($category = null, $geo = "IT", $locale = "it")
+    public static function getLatestTrendIds($category = "all", $geo = "IT", $locale = "it")
     {
         $url = Endpoint::getTrendsUrl($category, $geo, $locale);
         $content = file_get_contents($url);
@@ -58,6 +58,12 @@ class GoogleTrends
         return $content;
     }
 
+    /**
+     * @param $request
+     * @param $token
+     * @param string $language
+     * @return array|bool|null|string
+     */
     public static function getMultilineData($request, $token, $language = "it")
     {
         $url = Endpoint::getMultilineTrendsUrl($request, $token, $language);
