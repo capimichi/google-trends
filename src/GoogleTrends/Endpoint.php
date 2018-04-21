@@ -6,7 +6,7 @@ namespace GoogleTrends;
 class Endpoint
 {
 
-    const TRENDS_URL = "https://trends.google.it/trends/api/stories/latest?hl={locale}&tz=-60&fi=15&fs=15&geo={geo}&ri=300&rs=15&sort=0";
+    const TRENDS_URL = "https://trends.google.it/trends/api/stories/latest?hl={locale}&cat={category}&tz=-60&fi=15&fs=15&geo={geo}&ri=300&rs=15&sort=0";
 
     const TREND_URL = "https://trends.google.it/trends/story/{id}";
 
@@ -110,9 +110,8 @@ class Endpoint
     public static function getTrendsUrl($category = "all", $geo = "IT", $locale = "it")
     {
         $url = self::TRENDS_URL;
-        if ($category) {
-            $url .= "&cat=" . $category;
-        }
+
+        $url = str_replace("{cat}", $category, $url);
         $url = str_replace("{geo}", $geo, $url);
         $url = str_replace("{locale}", $locale, $url);
         return $url;
