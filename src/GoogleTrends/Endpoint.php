@@ -111,7 +111,7 @@ class Endpoint
     {
         $url = self::TRENDS_URL;
 
-        $url = str_replace("{cat}", $category, $url);
+        $url = str_replace("{category}", $category, $url);
         $url = str_replace("{geo}", $geo, $url);
         $url = str_replace("{locale}", $locale, $url);
         return $url;
