@@ -40,4 +40,33 @@ class GoogleTrends
         $json = json_decode($content, true);
         return Trend::createFromData($json);
     }
+
+    /**
+     * @param $terms
+     * @param $typeCompareDate
+     * @param string $language
+     * @return array|bool|mixed|string
+     */
+    public static function getExploreData($terms, $typeCompareDate, $language = "it")
+    {
+        $url = Endpoint::getExploreTrendsUrl($terms, $typeCompareDate, $language);
+
+        $content = file_get_contents($url);
+
+        $content = \GoogleTrends\Helper\GoogleHelper::parseGoogleResponse($content);
+
+        return $content;
+    }
+
+    public static function getMultilineData($request, $token, $language = "it")
+    {
+        $url = Endpoint::getMultilineTrendsUrl($request, $token, $language);
+
+        $content = file_get_contents($url);
+
+        $content = \GoogleTrends\Helper\GoogleHelper::parseGoogleResponse($content);
+
+        return $content;
+
+    }
 }
