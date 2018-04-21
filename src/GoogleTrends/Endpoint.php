@@ -10,7 +10,7 @@ class Endpoint
 
     const TREND_URL = "https://trends.google.it/trends/story/{id}";
 
-    const TREND_JSON_URL = "https://trends.google.it/trends/api/stories/{it}?hl={locale}&tz=-60&sw=10";
+    const TREND_JSON_URL = "https://trends.google.it/trends/api/stories/{id}?hl={locale}&tz=-60&sw=10";
 
     const COMPARE_TRENDS_URL = "https://trends.google.it/trends/explore?date={date}&q={query}";
 
